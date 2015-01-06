@@ -61,6 +61,21 @@ var cornerstoneAPI = (function(options) {
 	// }
 	// END PRELOAD UTILITY
 
+	var menuAnimation = new TimelineMax({paused: true});
+	menuAnimation.to(".mobile-nav-menu", 0.75, { autoAlpha: 1, left: 0, ease: Back.easeInOut});
+
+	// MOBILE ICON - HAMBURGER
+	$(".mobile-nav-btn").on("click", function(){
+		$(this).toggleClass("open");
+
+  		if ($(this).hasClass("played")) {
+  			menuAnimation.reverse();	
+  		} else {
+  			menuAnimation.play();
+  		}	
+  		$(this).toggleClass("played");
+	});
+
 	// BOTTOM BEFORE CLOUSURE
 	var init = function() {
 		console.log('cornerstone API works');

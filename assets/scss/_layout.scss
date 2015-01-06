@@ -7,7 +7,7 @@
 *,
 *:before,
 *:after  {
-  -webkit-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
            box-sizing: border-box; 
 }
@@ -28,7 +28,7 @@
 
 .one { @include span-columns(1); }
 
-.page-wrap {
+.content-wrap {
 	width: 100%;
 	height: auto;
 	margin-left: auto;
@@ -55,7 +55,7 @@
 
 
 // ALTERNATE RESPONSIVE GRID
-.l-container { 
+.l-row { 
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -136,19 +136,13 @@ body, html {
 	background: $cream;
 	margin: 0;
 	padding: 0;
-}
-
-// ALTERNATE GLOBAL STYLES -BODY/HTML-
-
-html,
-body {
- font-size: 100%;
+	font-size: 100%;
 }
 
 // iPad with portrait orientation.
 
 @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
-  section {
+  body {
     height: 1024px;
   }
 }
@@ -157,7 +151,7 @@ body {
 //iPad with landscape orientation.
 
 @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
-  section {
+  body {
     height: 768px;
   }
 }

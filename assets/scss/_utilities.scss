@@ -60,33 +60,15 @@
 //   Mixins
 // -------------------------------------
 
-@mixin mq($point) {
-  @if $point == desktop {
-    @media (min-width: 1280px) { @content; }
-  }
-  @if $point == laptop {
-    @media (min-width: 960px) { @content; }
-  }
-  @else if $point == tablet {
-    @media (min-width: 768px) { @content; }
-  }
-  @else if $point == android {
-    @media (min-width: 480px)  { @content; }
-  }
-  @else if $point == iphone {
-    @media (min-width: 320px)  { @content; }
-  }
-}
-
 @mixin shadow-border($color) {
-  -webkit-box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, .5);
-          box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 @mixin fade-callout($value, $color, $font-color){
    background: rgba(0, 0, 0, $value);
-  -webkit-box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, .5);
-          box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
     color: $font-color;
 }
 
@@ -107,19 +89,66 @@
           background-size: cover;
 }
 
+// Generic Hover States
 @mixin grayscale-hover {
   @include transition (all .3s ease-in-out);
   &:hover {
+    cursor: pointer;
     -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+            filter: grayscale(100%);
   }
 }
 
 @mixin fade-hover {
-  @include transition (all .3s ease-in-out);
+  @include transition (all 0.3s ease-in-out);
   &:hover {
     opacity: 0.5;
     cursor: pointer;
   }
+}
+
+@mixin border-hover($color) {
+  @include transition (all 0.3s ease-in-out);
+    &:hover {
+      cursor: pointer;
+      -webkit-box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
+              box-shadow: 0px 0px 1px 1px $color, 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@mixin pop-hover {
+  @include transition (all 0.3s ease-in-out);
+    &:hover {
+      cursor: pointer;
+      @include transform(scale(1.5));
+    }
+}
+
+@mixin underline-hover {
+   @include transition (all 0.3s ease-in-out);
+   display: inline-block;
+   padding: 15px 20px;
+   position: relative;
+   &:after {    
+     background: none repeat scroll 0 0 transparent;
+     bottom: 0;
+     content: "";
+     display: block;
+     height: 2px;
+     left: 50%;
+     position: absolute;
+     background: #fff;
+     @include transition(width 0.3s ease 0s, left 0.3s ease 0s);
+     width: 0;
+   }
+   &:hover:after {
+     cursor: pointer;
+     width: 100%; 
+     left: 0; 
+   }
 }
 
 @mixin coverer {
@@ -134,7 +163,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  @include transform(translate(-50%, -50%));
 }
 
 @mixin word-wrap() {
@@ -227,5 +256,5 @@
 }
 
 .show-me {
-	@include shadow-border($charcoal);
+	@include shadow-border($brightRed);
 }
