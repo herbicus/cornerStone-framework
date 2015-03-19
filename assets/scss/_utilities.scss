@@ -152,38 +152,38 @@
 }
 
 @mixin coverer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 @mixin centerer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  @include transform(translate(-50%, -50%));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
 }
 
 @mixin word-wrap() {
-  word-break:     break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens:    auto;
-  hyphens:         auto;
+    word-break:     break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens:    auto;
+    hyphens:         auto;
 }
 
 @mixin ellipsis() {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 @function black($opacity) {
-  @return rgba(black, $opacity)
+    @return rgba(black, $opacity)
 }
 @function white($opacity) {
-  @return rgba(white, $opacity)
+    @return rgba(white, $opacity)
 }
 
 // MEDIA QUERY MIXIN
@@ -257,4 +257,14 @@
 
 .show-me {
 	@include shadow-border($brightRed);
+}
+
+// vertical divider for <li>
+.divider {
+    border-bottom: none;
+    border-top: none;
+    border-right: solid 1px #4e4e4e;
+    clear: none;
+    height: 2.8125rem;
+    width: 0;
 }

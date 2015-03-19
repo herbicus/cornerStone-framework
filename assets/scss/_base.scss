@@ -17,6 +17,7 @@ a {
 	color: $deepRed;
 	text-decoration: none;
 	@include transition (all 0.3s ease-in-out);
+	@include underline-hover;
 	&:hover {
 		cursor: pointer;
 		color: $brightRed;

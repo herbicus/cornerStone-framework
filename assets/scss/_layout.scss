@@ -78,6 +78,9 @@
 	@include mq(laptop) {
 		max-width: 960px;
 	}
+	@include mq(desktop) {
+		max-width: 1280px;
+	}
 }
 
 .full-width {

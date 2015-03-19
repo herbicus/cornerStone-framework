@@ -4,6 +4,19 @@
 // ----- Global typography classes
 // -------------------------------------
 
-// font-family: 'gotham_condensedbold';
-// font-family: 'gotham_condensedmedium';
-// font-family: 'gotham_condensed_lightregular';
+body {
+	font-family: 'neutratext';
+}
+
+h1, h2, h3,
+h4, h5, h6, a {
+	font-family: 'gothamBold';
+}
+
+h4, h5, h6, a {
+	font-weight: lighter;
+}
+
+li, p {
+	font-family: 'neutratext';
+}
