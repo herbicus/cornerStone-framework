@@ -1,7 +1,7 @@
 CornerStone
 ==========
 
-My custom framework/workflow using Bourbon, HTML5 Boilerplate, Grunt with MAMP.
+My custom framework/workflow using Bourbon Mixin Library and TweenMax
 
 Updates imminent:
 
@@ -10,3 +10,4 @@ Updates imminent:
 * 06/27/14: Added HTML watch task for live reload and package.json with dependencies for grunt.
 * 10/13/14: Added basic partials (base, layout, typography, etc...)
 * 10/13/14: Added TweenMax and waypoints to vendor file
+* 02/20/15: Added utilities.js ( preloader & shuffle array)
