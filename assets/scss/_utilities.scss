@@ -91,7 +91,7 @@
 
 // Generic Hover States
 @mixin grayscale-hover {
-  @include transition (all .3s ease-in-out);
+  @include transition (all 0.3s ease-in-out);
   &:hover {
     cursor: pointer;
     -webkit-filter: grayscale(100%);
@@ -103,11 +103,11 @@
 }
 
 @mixin fade-hover {
-  @include transition (all 0.3s ease-in-out);
-  &:hover {
-    opacity: 0.5;
-    cursor: pointer;
-  }
+    @include transition (all 0.3s ease-in-out);
+    &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+    }
 }
 
 @mixin border-hover($color) {
@@ -120,35 +120,35 @@
 }
 
 @mixin pop-hover {
-  @include transition (all 0.3s ease-in-out);
+    @include transition (all 0.3s $ease-in-out-back);
     &:hover {
-      cursor: pointer;
-      @include transform(scale(1.5));
+        cursor: pointer;
+        @include transform(scale(1.15));
     }
 }
 
-@mixin underline-hover {
-   @include transition (all 0.3s ease-in-out);
-   display: inline-block;
-   padding: 15px 20px;
-   position: relative;
-   &:after {    
-     background: none repeat scroll 0 0 transparent;
-     bottom: 0;
-     content: "";
-     display: block;
-     height: 2px;
-     left: 50%;
-     position: absolute;
-     background: #fff;
-     @include transition(width 0.3s ease 0s, left 0.3s ease 0s);
-     width: 0;
-   }
-   &:hover:after {
-     cursor: pointer;
-     width: 100%; 
-     left: 0; 
-   }
+@mixin underline-hover($color) {
+    @include transition (all 0.3s ease-in-out);
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+    &:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: $color;
+        @include transition(width 0.3s $ease-out-back 0.3s, left 0.3s $ease-out-back 0.3s);
+        width: 0;
+    }
+    &:hover:after {
+        cursor: pointer;
+        width: 100%; 
+        left: 0; 
+    }
 }
 
 @mixin coverer {
@@ -179,47 +179,42 @@
     text-overflow: ellipsis;
 }
 
-@function black($opacity) {
-    @return rgba(black, $opacity)
-}
-@function white($opacity) {
-    @return rgba(white, $opacity)
-}
-
 // MEDIA QUERY MIXIN
 
 @mixin mq($point) {
-  @if $point == desktop {
-    @media (min-width: 1280px) { @content; }
-  }
-  @if $point == laptop {
-    @media (min-width: 960px) { @content; }
-  }
-  @else if $point == tablet {
-    @media (min-width: 768px) { @content; }
-  }
-  @else if $point == android {
-    @media (min-width: 480px)  { @content; }
-  }
-  @else if $point == iphone {
-    @media (min-width: 320px)  { @content; }
-  }
+    @if $point == desktop {
+        @media (min-width: 1280px) { @content; }
+    }
+    @if $point == laptop {
+        @media (min-width: 960px) { @content; }
+    }
+    @else if $point == tablet {
+        @media (min-width: 768px) { @content; }
+    }
+    @else if $point == android {
+        @media (min-width: 480px)  { @content; }
+    }
+    @else if $point == iphone {
+        @media (min-width: 320px)  { @content; }
+    }
 }
 
 // ----- Adds responsive breakpoints. ----- //
- @mixin breakpoint($width) {
-   @media (min-width: $width) {
-     @content;
-   }
- }
+@mixin breakpoint($width) {
+    @media (min-width: $width) {
+        @content;
+    }
+}
 
 // ----- Adds accessibility pseudo selectors to hover states. ----- //
  @mixin attention() {
     &:hover,
     &:active,
     &:focus {
+        @include transition (all 0.3s ease-in-out);
+        cursor: pointer;
         @content;
-  }
+    }
 }
 
 // ----- Rem font size mixin with px fallback. ----- //
@@ -238,6 +233,13 @@
 //   Functions
 // -------------------------------------
 
+@function black($opacity) {
+    @return rgba(black, $opacity)
+}
+
+@function white($opacity) {
+    @return rgba(white, $opacity)
+}
 
 // -------------------------------------
 //   Utilities
@@ -263,7 +265,7 @@
 .divider {
     border-bottom: none;
     border-top: none;
-    border-right: solid 1px #4e4e4e;
+    border-right: solid 1px $charcoal;
     clear: none;
     height: 2.8125rem;
     width: 0;

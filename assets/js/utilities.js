@@ -1,8 +1,7 @@
 console.log("utilities.js loaded");
 
-var myUtilitiesAPI = (function(options) {
-	var shared = {},
-		options = options || {}
+var myUtilities = (function(options) {
+	var shared = {};
 
 	// -------------------------------------
 	//   SHUFFLE (array)
@@ -76,9 +75,9 @@ var myUtilitiesAPI = (function(options) {
 	shared.init = init;
 
 	return shared;
+
 }());
 
 $(document).ready(function() {
-	myUtilitiesAPI.init();
-
+	myUtilities.init();
 });
